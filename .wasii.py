@@ -3,6 +3,7 @@
 # github : https://github.com/evildevill
 # Note : we are not responsible for any misuse
 import importlib
+from re import X
 
 
 try:
@@ -30,7 +31,7 @@ def exit():
 def acak(b):
     w = 'ahtdzjc'
     d = ''
-    for i in x:
+    for i in X:
         d += '!' + w[random.randint(0, len(w) - 1)] + i
 
     return cetak(d)
