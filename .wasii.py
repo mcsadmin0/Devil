@@ -16,7 +16,7 @@ except ImportError:
     os.system('python3 wasi.py')
 
 importlib.reload(sys)
-sys.setdefaultencoding('utf8')
+sys.getdefaultencoding('utf8')
 br = mechanize.Browser()
 br.set_handle_robots(False)
 br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
